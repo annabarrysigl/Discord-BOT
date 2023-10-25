@@ -72,11 +72,6 @@ async def ban(ctx, member: discord.Member, reason=None):
     await member.ban(reason=reason)
 
 ### Administration 3
-# The command !flood should activate (or deactivate) a moderation workflow. 
-# When activated, your bot should monitor the messages and 
-# display a warning to any user posting more than X messages 
-# in the last Y minutes. 
-# The (de)activation should be confirmed using a custom message
 
 flood_active = True
 last_warning = None
@@ -121,5 +116,11 @@ async def xkcd(ctx):
     await ctx.send("https://xkcd.com/" + str(randint(10, 2001)))
 
 ### Fun and games 2
+
+@bot.command()
+async def poll(ctx, question):
+    message = await ctx.send("@here " +question)
+    await message.add_reaction("👍")
+    await message.add_reaction("👎")
 
 bot.run(token)  # Starts the bot
