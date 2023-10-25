@@ -80,7 +80,6 @@ Y_minutes = 2
 
 @bot.command()
 async def flood(ctx):
-    print("flood")
     global flood_active
     flood_active = not flood_active
     if flood_active:
@@ -122,5 +121,6 @@ async def poll(ctx, question):
     message = await ctx.send("@here " +question)
     await message.add_reaction("👍")
     await message.add_reaction("👎")
+
 
 bot.run(token)  # Starts the bot
